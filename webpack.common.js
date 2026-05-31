@@ -8,7 +8,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "oDine",
+      title: "Sayed's Weather App",
       template: "./src/template.html",
     }),
     new CopyWebpackPlugin({
