@@ -90,7 +90,6 @@ body {
     text-align: center;
     background-color: var(--neutral-800);
     padding: 0.625rem;
-    flex-grow: 1;
   }
 
   .temp {
@@ -111,11 +110,13 @@ body {
 
   .card {
     background-color: var(--neutral-700);
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.8rem;
+    display: inline-grid;
+    grid-template-columns: 15% 1fr 1fr;
     align-items: center;
   }
 
-  img {
+  .temp {
+    text-align: right;
   }
 }
