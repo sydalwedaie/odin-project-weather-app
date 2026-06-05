@@ -7,8 +7,8 @@ export function HourlyForecast(root) {
       return html`
         <div class="card hour-${hour}" data-hour=${hour}>
           <img src="#" alt="" class="wx-icon" />
-          <p class="hour"></p>
-          <p class="temp"></p>
+          <p class="hour">_</p>
+          <p class="temp">_</p>
         </div>
       `;
     })
@@ -36,7 +36,7 @@ export function HourlyForecast(root) {
       iconEl.src = getWxIcon(data.icon);
       iconEl.alt = data.icon;
       hourEl.textContent = format(data.datetimeEpoch * 1000, "HH aa"); // gotcha
-      tempEl.textContent = data.temp + "°";
+      tempEl.textContent = Math.floor(data.temp) + "°";
     });
   };
 

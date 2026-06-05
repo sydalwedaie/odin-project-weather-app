@@ -17,19 +17,19 @@ export function CurrentConditions(root) {
       <div class="info-secondary">
         <div class="card">
           <p>Feels Like</p>
-          <p class="feelslike">_</p>
+          <p class="value feelslike">_</p>
         </div>
         <div class="card">
           <p>Humidity</p>
-          <p class="humidity">_</p>
+          <p class="value humidity">_</p>
         </div>
         <div class="card">
           <p>Wind</p>
-          <p class="windspeed">_</p>
+          <p class="value windspeed">_</p>
         </div>
         <div class="card">
           <p>Precipitation</p>
-          <p class="precip">_</p>
+          <p class="value precip">_</p>
         </div>
       </div>
     </section>
@@ -54,7 +54,7 @@ export function CurrentConditions(root) {
     );
     iconEl.src = getWxIcon(wxData.currentConditions.icon);
     iconEl.alt = wxData.currentConditions.icon;
-    tempEl.textContent = wxData.currentConditions.temp;
+    tempEl.textContent = Math.floor(wxData.currentConditions.temp) + "°";
     feelslikeEl.textContent = wxData.currentConditions.feelslike + "℃";
     humidityEl.textContent = wxData.currentConditions.humidity + "%";
     windspeedEl.textContent = wxData.currentConditions.windspeed + " kph";
