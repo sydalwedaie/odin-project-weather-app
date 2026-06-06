@@ -28,13 +28,16 @@ async function renderApp() {
   hourlyForecast.render();
   attribution.render();
 
-  const wxData = await getWxData("mumbai");
-  console.log(wxData);
+  // Search
+  header.bindSearchClick(async (place) => {
+    const wxData = await getWxData(place);
+    console.log(wxData);
 
-  // Load data
-  currentConditions.load(wxData);
-  dailyForecast.load(wxData);
-  hourlyForecast.load(wxData);
+    // Load data
+    currentConditions.load(wxData);
+    dailyForecast.load(wxData);
+    hourlyForecast.load(wxData);
+  });
 }
 
 renderApp();

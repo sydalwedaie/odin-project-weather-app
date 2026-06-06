@@ -57,7 +57,8 @@ export function CurrentConditions(root) {
     tempEl.textContent = Math.floor(wxData.currentConditions.temp) + "°";
     feelslikeEl.textContent = wxData.currentConditions.feelslike + "℃";
     humidityEl.textContent = wxData.currentConditions.humidity + "%";
-    windspeedEl.textContent = wxData.currentConditions.windspeed + " kph";
+    windspeedEl.textContent =
+      Math.floor(wxData.currentConditions.windspeed) + " km/h";
     precipEl.textContent = wxData.currentConditions.precip || 0 + " mm";
   };
 

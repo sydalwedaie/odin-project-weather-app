@@ -1,4 +1,4 @@
-import { generateDOM, getWxIcon, html } from "./helpers.js";
+import { generateDOM, html, $ } from "./helpers.js";
 import logo from "./assets/logo.svg";
 
 export function Header(root) {
@@ -14,13 +14,22 @@ export function Header(root) {
           id="place"
           name="place"
           placeholder="Search for a place"
+          required
         />
-        <button>Search</button>
+        <button class="btn-search">Search</button>
       </form>
     </div>
   `;
 
+  const bindSearchClick = (handleClick) => {
+    const formEl = $("form");
+    formEl.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleClick(e.target.place.value);
+    });
+  };
+
   const render = () => root.appendChild(generateDOM(markup));
 
-  return { render };
+  return { render, bindSearchClick };
 }
