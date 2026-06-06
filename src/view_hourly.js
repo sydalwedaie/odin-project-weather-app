@@ -22,7 +22,7 @@ export function HourlyForecast(root) {
   `;
 
   const render = () => root.appendChild(generateDOM(markup));
-  const load = (wxData) => {
+  const update = (wxData) => {
     const hourlyCards = document.querySelectorAll(
       ".wrapper-hourly-cards .card"
     );
@@ -40,5 +40,5 @@ export function HourlyForecast(root) {
     });
   };
 
-  return { render, load };
+  return { render, update };
 }

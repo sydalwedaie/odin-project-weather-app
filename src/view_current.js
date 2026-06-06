@@ -10,7 +10,7 @@ export function CurrentConditions(root) {
           <p class="date">_</p>
         </div>
         <div class="group-current-wx">
-          <img src="#" alt="loading" class="wx-icon" />
+          <img src="#" alt="" class="wx-icon" />
           <p class="temp">_</p>
         </div>
       </div>
@@ -37,7 +37,7 @@ export function CurrentConditions(root) {
 
   const render = () => root.appendChild(generateDOM(markup));
 
-  const load = (wxData) => {
+  const update = (wxData, locName) => {
     const locationEl = $(".location");
     const dateEl = $(".date");
     const iconEl = $(".current-conditions .wx-icon"); // specific icon target, bcz there are 2 others
@@ -47,20 +47,18 @@ export function CurrentConditions(root) {
     const windspeedEl = $(".windspeed");
     const precipEl = $(".precip");
 
-    locationEl.textContent = wxData.address;
-    dateEl.textContent = format(
-      wxData.currentConditions.datetimeEpoch * 1000,
-      "EEE"
-    );
-    iconEl.src = getWxIcon(wxData.currentConditions.icon);
-    iconEl.alt = wxData.currentConditions.icon;
-    tempEl.textContent = Math.floor(wxData.currentConditions.temp) + "°";
-    feelslikeEl.textContent = wxData.currentConditions.feelslike + "℃";
-    humidityEl.textContent = wxData.currentConditions.humidity + "%";
-    windspeedEl.textContent =
-      Math.floor(wxData.currentConditions.windspeed) + " km/h";
-    precipEl.textContent = wxData.currentConditions.precip || 0 + " mm";
+    const data = wxData.currentConditions;
+
+    locationEl.textContent = `${locName.city}, ${locName.country}`;
+    dateEl.textContent = format(data.datetimeEpoch * 1000, "EEEE, MMM d, yyyy");
+    iconEl.src = getWxIcon(data.icon);
+    iconEl.alt = data.icon;
+    tempEl.textContent = Math.floor(data.temp) + "°";
+    feelslikeEl.textContent = data.feelslike + "℃";
+    humidityEl.textContent = data.humidity + "%";
+    windspeedEl.textContent = Math.floor(data.windspeed) + " km/h";
+    precipEl.textContent = data.precip || 0 + " mm";
   };
 
-  return { render, load };
+  return { render, update };
 }

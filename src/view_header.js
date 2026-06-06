@@ -18,12 +18,12 @@ export function Header(root) {
         />
         <button class="btn-search">Search</button>
       </form>
+      <div class="error"></div>
     </div>
   `;
 
   const bindSearchClick = (handleClick) => {
-    const formEl = $("form");
-    formEl.addEventListener("submit", (e) => {
+    $("form").addEventListener("submit", (e) => {
       e.preventDefault();
       handleClick(e.target.place.value);
     });

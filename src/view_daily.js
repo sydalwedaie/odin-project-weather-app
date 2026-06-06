@@ -25,7 +25,7 @@ export function DailyForecast(root) {
   `;
 
   const render = () => root.appendChild(generateDOM(markup));
-  const load = (wxData) => {
+  const update = (wxData) => {
     const dailyCards = document.querySelectorAll(".wrapper-daily-cards .card");
     dailyCards.forEach((card) => {
       const weekDayEl = card.querySelector(".week-day");
@@ -34,6 +34,7 @@ export function DailyForecast(root) {
       const tempminEl = card.querySelector(".tempmin");
 
       const data = wxData.days[card.dataset.day];
+
       weekDayEl.textContent = format(data.datetimeEpoch * 1000, "EEE"); // gotcha
       iconEl.src = getWxIcon(data.icon);
       iconEl.alt = data.icon;
@@ -42,5 +43,5 @@ export function DailyForecast(root) {
     });
   };
 
-  return { render, load };
+  return { render, update };
 }
