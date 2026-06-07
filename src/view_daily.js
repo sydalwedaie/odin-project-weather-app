@@ -6,11 +6,11 @@ export function DailyForecast(root) {
     .map((day) => {
       return html`
         <div class="card day-${day}" data-day=${day}>
-          <p class="week-day"></p>
-          <img src="#" alt="" class="wx-icon" />
+          <p class="value week-day">_</p>
+          <img src="#" alt="" class="value wx-icon" />
           <div class="temp">
-            <p class="tempmax">_</p>
-            <p class="tempmin">_</p>
+            <p class="value tempmax">_</p>
+            <p class="value tempmin">_</p>
           </div>
         </div>
       `;

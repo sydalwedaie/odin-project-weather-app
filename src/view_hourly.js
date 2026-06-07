@@ -6,9 +6,9 @@ export function HourlyForecast(root) {
     .map((hour) => {
       return html`
         <div class="card hour-${hour}" data-hour=${hour}>
-          <img src="#" alt="" class="wx-icon" />
-          <p class="hour">_</p>
-          <p class="temp">_</p>
+          <img src="#" alt="" class="value wx-icon" />
+          <p class="value hour">_</p>
+          <p class="value temp">_</p>
         </div>
       `;
     })

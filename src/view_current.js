@@ -6,12 +6,12 @@ export function CurrentConditions(root) {
     <section class="current-conditions">
       <div class="info-primary">
         <div class="group-location">
-          <p class="location">_</p>
-          <p class="date">_</p>
+          <p class="value location">_</p>
+          <p class="value date">_</p>
         </div>
         <div class="group-current-wx">
-          <img src="#" alt="" class="wx-icon" />
-          <p class="temp">_</p>
+          <img src="#" alt="" class="value wx-icon" />
+          <p class="value temp">_</p>
         </div>
       </div>
       <div class="info-secondary">

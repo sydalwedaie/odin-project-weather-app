@@ -47,11 +47,16 @@ async function renderApp() {
   // Fetch the data and update the DOM
   const loadData = async (place) => {
     const errorEl = document.querySelector(".error");
+    const allValues = document.querySelectorAll(".value");
+    const infoPrimary = document.querySelector(".info-primary");
+
+    allValues.forEach((value) => (value.style.opacity = "0"));
     try {
       const wxData = await getWxData(place);
       const locName = await getLocationName(wxData.latitude, wxData.longitude);
       errorEl.classList.remove("active");
       updateDOM(wxData, locName);
+      allValues.forEach((value) => (value.style.opacity = "1"));
       errorEl.textContent = "";
     } catch (err) {
       errorEl.textContent = "No search results found!";
