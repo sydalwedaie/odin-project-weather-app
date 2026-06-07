@@ -18,7 +18,7 @@ export function Header(root) {
         />
         <button class="btn-search">Search</button>
       </form>
-      <div class="error"></div>
+      <p class="error" aria-live="polite"></p>
     </div>
   `;
 
@@ -26,6 +26,7 @@ export function Header(root) {
     $("form").addEventListener("submit", (e) => {
       e.preventDefault();
       handleClick(e.target.place.value);
+      e.target.place.value = "";
     });
   };
 

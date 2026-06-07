@@ -7,6 +7,7 @@ function getWxQuery(city) {
 
 export async function getWxData(city) {
   const res = await fetch(getWxQuery(city));
+  console.log(res.ok);
   return await res.json();
 }
 

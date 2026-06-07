@@ -50,22 +50,26 @@ async function renderApp() {
     try {
       const wxData = await getWxData(place);
       const locName = await getLocationName(wxData.latitude, wxData.longitude);
+      errorEl.classList.remove("active");
       updateDOM(wxData, locName);
       errorEl.textContent = "";
     } catch (err) {
       errorEl.textContent = "No search results found!";
+      errorEl.classList.add("active");
     }
+  };
+
+  const loadDataFromCurrentPosition = (position) => {
+    const lat = position.coords.latitude;
+    const long = position.coords.longitude;
+    loadData(`${lat},${long}`);
   };
 
   // Render skeleton
   renderDOM();
 
   // On initial load, display current location weather
-  navigator.geolocation.getCurrentPosition((position) => {
-    const lat = position.coords.latitude;
-    const long = position.coords.longitude;
-    loadData(`${lat},${long}`);
-  });
+  navigator.geolocation.getCurrentPosition(loadDataFromCurrentPosition);
 
   // Load data from search
   header.bindSearchClick(loadData);

@@ -9,8 +9,8 @@ export function DailyForecast(root) {
           <p class="week-day"></p>
           <img src="#" alt="" class="wx-icon" />
           <div class="temp">
-            <p class="tempmax"></p>
-            <p class="tempmin"></p>
+            <p class="tempmax">_</p>
+            <p class="tempmin">_</p>
           </div>
         </div>
       `;

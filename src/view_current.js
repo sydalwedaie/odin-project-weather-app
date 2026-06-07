@@ -54,7 +54,7 @@ export function CurrentConditions(root) {
     iconEl.src = getWxIcon(data.icon);
     iconEl.alt = data.icon;
     tempEl.textContent = Math.floor(data.temp) + "°";
-    feelslikeEl.textContent = data.feelslike + "℃";
+    feelslikeEl.textContent = data.feelslike + "°";
     humidityEl.textContent = data.humidity + "%";
     windspeedEl.textContent = Math.floor(data.windspeed) + " km/h";
     precipEl.textContent = data.precip || 0 + " mm";
