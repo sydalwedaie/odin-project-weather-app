@@ -2,3 +2,6 @@
 /dist
 /archive
 tags
+
+# Local Netlify folder
+.netlify
