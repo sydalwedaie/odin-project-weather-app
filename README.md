@@ -6,7 +6,9 @@ This is a solution to the [Weather App challenge](https://www.theodinproject.com
 
 ## Links
 
-- Solution on [GitHub](url)
-- Live preview on [Netlify](url)
+-   Solution on [GitHub](https://github.com/sydalwedaie/odin-project-weather-app)
+-   Live preview on [Netlify](https://odin-weather-app-not4g.netlify.app/)
 
 ## Attribution
+
+Design by [Frontend Mentor](https://odin-weather-app-not4g.netlify.app/)
