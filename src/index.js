@@ -2,6 +2,7 @@ import "./assets/modern-normalize.css";
 import "./assets/reset.css";
 import "./index.css";
 import "./template.html";
+import iconLoading from "./assets/icon-loading.svg";
 import { getWxData, getLocationData } from "./api.js";
 import { Header } from "./view_header.js";
 import { CurrentConditions } from "./view_current.js";
@@ -47,20 +48,26 @@ async function renderApp() {
   // Fetch the data and update the DOM
   const loadData = async (place) => {
     const errorEl = document.querySelector(".error");
-    const allValues = document.querySelectorAll(".value");
-    const infoPrimary = document.querySelector(".info-primary");
+    const allValuesEl = document.querySelectorAll(".value");
+    const loadingEl = document.querySelector(".loading");
 
-    allValues.forEach((value) => (value.style.opacity = "0"));
+    errorEl.textContent = "";
+    allValuesEl.forEach((value) => (value.style.opacity = "0"));
+    loadingEl.innerHTML = `
+    <img src="${iconLoading}" alt="" />
+      <p>Loading...</p>
+    `;
     try {
       const wxData = await getWxData(place);
       const locName = await getLocationName(wxData.latitude, wxData.longitude);
       errorEl.classList.remove("active");
       updateDOM(wxData, locName);
-      allValues.forEach((value) => (value.style.opacity = "1"));
-      errorEl.textContent = "";
+      allValuesEl.forEach((value) => (value.style.opacity = "1"));
+      loadingEl.textContent = "";
     } catch (err) {
       errorEl.textContent = "No search results found!";
       errorEl.classList.add("active");
+    } finally {
     }
   };
 

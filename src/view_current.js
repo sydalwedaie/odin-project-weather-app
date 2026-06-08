@@ -13,6 +13,7 @@ export function CurrentConditions(root) {
           <img src="#" alt="" class="value wx-icon" />
           <p class="value temp">_</p>
         </div>
+        <div class="loading"></div>
       </div>
       <div class="info-secondary">
         <div class="card">
