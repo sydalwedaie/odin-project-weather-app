@@ -98,9 +98,6 @@ section {
     max-width: 75rem;
     padding: 3rem;
   }
-
-  @media (min-width: 75rem) {
-  }
 }
 
 .brand {
@@ -138,7 +135,7 @@ section {
 }
 
 .search-form {
-  max-width: 41rem;
+  max-width: 35rem;
   margin-inline: auto;
   form {
     display: flex;
@@ -328,6 +325,10 @@ section {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    @container (width > 5.5rem) {
+      justify-content: space-around;
+    }
   }
 }
 
@@ -345,44 +346,66 @@ section {
   }
 
   .wrapper-hourly-cards {
-    display: flex;
-    flex-direction: column;
+    /* Horizontal scrll on mobile */
+    display: grid;
+    grid-auto-flow: column;
     gap: 1rem;
     overflow-y: scroll;
-    height: 36rem;
 
-    @container hourly (width > 35rem) {
-      height: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @container hourly (width > 45rem) {
-      grid-auto-flow: column;
+    /* Vertical scroll on desktop */
+    @media (min-width: 73rem) {
+      display: flex;
+      flex-direction: column;
+      height: 36rem;
     }
   }
 
   .card {
+    width: 4rem;
     padding: 0.5rem;
     display: flex;
+    flex-direction: column;
     gap: 1rem;
     align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
     background-color: var(--neutral-700);
     border: 1px solid var(--neutral-600);
     border-radius: var(--radius-sm);
+
+    @media (min-width: 40rem) {
+      width: 4.5rem;
+    }
+
+    @media (min-width: 73rem) {
+      width: auto;
+      flex-direction: row;
+      justify-content: flex-start;
+      padding-inline: 1rem;
+    }
   }
 
   .wx-icon {
     width: 2.5rem;
+    @media (min-width: 73rem) {
+      order: -1;
+    }
   }
 
   .hour {
-    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .ap {
+    font-weight: 300;
+    font-size: 0.8rem;
   }
 
   .temp {
-    margin-left: auto;
-    padding-right: 0.5rem;
+    @media (min-width: 73rem) {
+      margin-left: auto;
+    }
   }
 }
 

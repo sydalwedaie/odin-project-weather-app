@@ -6,8 +6,11 @@ export function HourlyForecast(root) {
     .map((hour) => {
       return html`
         <div class="card hour-${hour}" data-hour=${hour}>
+          <p class="value time">
+            <span class="hour">_</span>
+            <span class="ap">_</span>
+          </p>
           <img src="#" alt="" class="value wx-icon" />
-          <p class="value hour">_</p>
           <p class="value temp">_</p>
         </div>
       `;
@@ -29,13 +32,15 @@ export function HourlyForecast(root) {
     hourlyCards.forEach((card) => {
       const iconEl = card.querySelector(".wx-icon");
       const hourEl = card.querySelector(".hour");
+      const apEl = card.querySelector(".ap");
       const tempEl = card.querySelector(".temp");
 
       const data = wxData.days[1].hours[card.dataset.hour];
 
       iconEl.src = getWxIcon(data.icon);
       iconEl.alt = data.icon;
-      hourEl.textContent = format(data.datetimeEpoch * 1000, "HH aa"); // gotcha
+      hourEl.textContent = format(data.datetimeEpoch * 1000, "HH"); // gotcha
+      apEl.textContent = format(data.datetimeEpoch * 1000, "aa"); // gotcha
       tempEl.textContent = Math.floor(data.temp) + "°";
     });
   };
