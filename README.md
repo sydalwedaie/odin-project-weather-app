@@ -9,7 +9,7 @@ This is a solution to the [Weather App challenge](https://www.theodinproject.com
 -   Solution on [GitHub](https://github.com/sydalwedaie/odin-project-weather-app)
 -   Live preview on [Netlify](https://odin-weather-app-not4g.netlify.app/)
 
-## Tools Used
+## Tools and Techniques Used
 
 It's a vanillaJS project with two APIs. Visual Crossing's [Weather API](https://www.visualcrossing.com/weather-api/) to get the weather data, and [LocationIQ](https://locationiq.com/) to get city and country names. The script would first fetch the weather data (given a user's query for a place), and feed the coordinates from the response into the LocationIQ API to fetch the location's details.
 
