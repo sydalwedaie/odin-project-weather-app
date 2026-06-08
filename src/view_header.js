@@ -1,10 +1,11 @@
 import { generateDOM, html, $ } from "./helpers.js";
-import logo from "./assets/logo.svg";
+import logo from "./assets/logo.png";
 
 export function Header(root) {
   const markup = html`
-    <div class="title">
+    <div class="brand">
       <img src=${logo} alt="" class="logo" />
+      <span>Sayed's Weather App</span>
     </div>
     <p class="header-caption">How’s the sky looking today?</p>
     <div class="search-form">
