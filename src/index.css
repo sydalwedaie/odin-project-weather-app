@@ -104,7 +104,9 @@ section {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 1.2rem;
+  letter-spacing: -2px;
 
   img {
     width: 2.5rem;
@@ -192,6 +194,7 @@ section {
     text-align: center;
     border-radius: var(--radius-lg);
     padding: 1rem;
+    position: relative;
 
     @media (min-width: 45rem) {
       display: flex;
@@ -432,6 +435,12 @@ section {
   position: absolute;
   font-size: 1.125rem;
   color: var(--neutral-200);
+
+  @media (max-width: 45rem) {
+    top: 50%;
+    left: 40%;
+    transform: translateY(-50%);
+  }
 
   img {
     fill: pink;

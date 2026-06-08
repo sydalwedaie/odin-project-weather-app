@@ -63,11 +63,11 @@ async function renderApp() {
       errorEl.classList.remove("active");
       updateDOM(wxData, locName);
       allValuesEl.forEach((value) => (value.style.opacity = "1"));
-      loadingEl.textContent = "";
     } catch (err) {
       errorEl.textContent = "No search results found!";
       errorEl.classList.add("active");
     } finally {
+      loadingEl.textContent = "";
     }
   };
 
