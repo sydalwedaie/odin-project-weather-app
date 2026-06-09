@@ -19,7 +19,6 @@ export function Header(root) {
         />
         <button class="btn-search">Search</button>
       </form>
-      <p class="error" aria-live="polite"></p>
     </div>
   `;
 

@@ -422,23 +422,26 @@ section {
   }
 }
 
-.error {
-  text-align: center;
-  transition: all 0.2s ease;
-
-  &.active {
-    padding-top: 2rem;
-  }
-}
-
-.loading {
+.status-message {
   font-size: 1.125rem;
   color: var(--neutral-200);
-
   position: absolute;
+
+  img {
+    margin-inline: auto;
+    margin-bottom: 1rem;
+  }
   @media (max-width: 45rem) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+}
+
+.value {
+  opacity: 1;
+  transition: all 0.15s ease;
+  &.hidden {
+    opacity: 0;
   }
 }
